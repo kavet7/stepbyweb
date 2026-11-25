@@ -1,0 +1,14 @@
+{
+  "name": "stepbyweb",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test server/requests.test.js"
+  }
+}

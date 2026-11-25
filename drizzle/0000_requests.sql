@@ -1,0 +1,8 @@
+CREATE TABLE requests (
+  id TEXT PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  contact TEXT NOT NULL,
+  task TEXT NOT NULL,
+  website TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
