@@ -119,3 +119,33 @@ form.addEventListener("submit", async (event) => {
       .forEach((field) => (field.readOnly = false));
   }
 });
+
+// Keep native summary keyboard activation and animate the panel's actual height.
+for (const item of document.querySelectorAll(".service-list details")) {
+  const panel = item.querySelector(".service-description");
+  let motion;
+  item.querySelector("summary").addEventListener("click", (event) => {
+    if (!panel.animate) return;
+    event.preventDefault();
+    const opening = !item.open || item.classList.contains("closing");
+    const height = item.open ? panel.getBoundingClientRect().height : 0;
+    const opacity = item.open ? getComputedStyle(panel).opacity : 0;
+    motion?.cancel();
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      item.classList.remove("closing");
+      item.open = opening;
+      return;
+    }
+    item.open = true;
+    item.classList.toggle("closing", !opening);
+    motion = panel.animate(
+      [{ height: height + "px", opacity },
+       { height: (opening ? panel.scrollHeight : 0) + "px", opacity: opening ? 1 : 0 }],
+      { duration: 270, easing: "cubic-bezier(.2,.7,.2,1)" }
+    );
+    motion.onfinish = () => {
+      item.open = opening;
+      item.classList.remove("closing");
+    };
+  });
+}

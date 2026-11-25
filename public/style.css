@@ -813,15 +813,20 @@ body:has(dialog[open]) {
   display: none;
 }
 .service-list summary::after {
-  content: "+";
+  content: "";
   position: absolute;
-  right: 6px;
-  font: 400 1.7rem/1 Arial;
-  color: var(--blue);
+  right: 10px;
+  width: 9px;
+  height: 9px;
+  border: solid var(--blue);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 260ms ease;
 }
-.service-list details[open] summary::after {
-  content: "−";
+.service-list details[open]:not(.closing) summary::after {
+  transform: rotate(225deg);
 }
+.service-description { display: flow-root; overflow: hidden; }
 .service-list p {
   color: var(--muted);
   margin: 0 20px 14px 45px;
@@ -1099,4 +1104,33 @@ textarea::placeholder {
   .service-list summary {
     gap: 10px;
   }
+}
+
+.phones { background:var(--blue); color:white; padding-block:clamp(38px,5vw,72px); }
+.phone-layout { display:grid; grid-template-columns:.96fr 1.04fr; gap:7%; align-items:start; }
+.phones h2 { margin:0; font-size:clamp(2.6rem,4.25vw,4.4rem); line-height:1.1; font-weight:650; letter-spacing:-.065em; }
+.phones h2 span { color:var(--lime); }
+.phone-list { display:grid; font-style:normal; border-top:1px solid #ffffff75; }
+.phone-list a { display:block; padding:12px 2px; border-bottom:1px solid #ffffff75; font-size:clamp(1.45rem,2.8vw,2.7rem); letter-spacing:-.045em; font-weight:600; font-variant-numeric:tabular-nums; }
+nav a, .brand, .text-link, .phone-list a, .footer a, .close, .service-list summary { transition:color .18s ease, background-color .18s ease, opacity .18s ease; }
+.project { transition:transform .2s ease; }
+.open-icon { transition:background-color .18s ease,color .18s ease; }
+@media (hover:hover) {
+  .phone-list a:hover, .footer a:hover { color:var(--lime); }
+  .brand:hover, .service-list summary:hover { color:var(--blue); }
+  .project:hover { transform:translateY(-3px); }
+  .close:hover { background:var(--ink); color:white; }
+}
+:is(a,button,summary):focus-visible { outline:3px solid var(--blue); outline-offset:4px; }
+:is(.phones,.contact,.footer) :is(a,button):focus-visible { outline-color:var(--lime); }
+@media (pointer:coarse) {
+  :is(a,button,summary):active { opacity:.75; }
+  .project:active, .btn:active { transform:scale(.985); }
+}
+@media(max-width:700px) {
+  .phone-layout { grid-template-columns:1fr; gap:22px; }
+  nav, nav.open { display:grid; gap:0; transition:opacity .18s, clip-path .22s ease, visibility .22s; }
+  nav { opacity:0; clip-path:inset(0 0 100%); visibility:hidden; }
+  nav.open { opacity:1; clip-path:inset(0); visibility:visible; }
+  nav a { padding:12px 0; }
 }
