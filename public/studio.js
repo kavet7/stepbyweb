@@ -139,9 +139,14 @@ for (const item of document.querySelectorAll(".service-list details")) {
     item.open = true;
     item.classList.toggle("closing", !opening);
     motion = panel.animate(
-      [{ height: height + "px", opacity },
-       { height: (opening ? panel.scrollHeight : 0) + "px", opacity: opening ? 1 : 0 }],
-      { duration: 270, easing: "cubic-bezier(.2,.7,.2,1)" }
+      [
+        { height: height + "px", opacity },
+        {
+          height: (opening ? panel.scrollHeight : 0) + "px",
+          opacity: opening ? 1 : 0,
+        },
+      ],
+      { duration: 270, easing: "cubic-bezier(.2,.7,.2,1)" },
     );
     motion.onfinish = () => {
       item.open = opening;
@@ -149,3 +154,16 @@ for (const item of document.querySelectorAll(".service-list details")) {
     };
   });
 }
+
+function revealLinkedService() {
+  const section = document.getElementById(location.hash.slice(1));
+  if (section?.matches("#services details")) section.open = true;
+}
+window.addEventListener("hashchange", revealLinkedService);
+revealLinkedService();
+document.querySelectorAll(".task-card").forEach((link) => {
+  link.addEventListener("click", () => {
+    const section = document.getElementById(link.hash.slice(1));
+    if (!section.open) section.querySelector("summary").click();
+  });
+});
