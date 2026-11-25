@@ -1110,38 +1110,46 @@ textarea::placeholder {
 }
 
 .phones {
-  background: var(--blue);
-  color: white;
-  padding-block: clamp(38px, 5vw, 72px);
+  background: #191c23;
+  color: var(--paper);
+  border-top: 1px solid #3b3e45;
+  padding-block: 14px;
 }
 .phone-layout {
   display: grid;
-  grid-template-columns: 0.96fr 1.04fr;
-  gap: 7%;
-  align-items: start;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: clamp(20px, 4vw, 64px);
 }
 .phones h2 {
-  margin: 0;
-  font-size: clamp(2.6rem, 4.25vw, 4.4rem);
-  line-height: 1.1;
+  font-size: 1.25rem;
   font-weight: 650;
-  letter-spacing: -0.065em;
+  letter-spacing: -.045em;
 }
-.phones h2 span {
+.phones h2 span, .phone-cta {
   color: var(--lime);
 }
+.phone-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  justify-self: start;
+  font-size: .9rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.phone-cta:hover { color: white; }
 .phone-list {
-  display: grid;
+  display: flex;
+  gap: clamp(16px, 2.5vw, 40px);
   font-style: normal;
-  border-top: 1px solid #ffffff75;
 }
 .phone-list a {
-  display: block;
-  padding: 12px 2px;
-  border-bottom: 1px solid #ffffff75;
-  font-size: clamp(1.45rem, 2.8vw, 2.7rem);
-  letter-spacing: -0.045em;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.05rem;
+  letter-spacing: -.03em;
   font-variant-numeric: tabular-nums;
 }
 nav a,
@@ -1199,9 +1207,14 @@ nav a,
 }
 @media (max-width: 700px) {
   .phone-layout {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 0 10px;
   }
+  .phone-list { grid-column: 2; grid-row: 1 / 3; display: grid; gap: 0; }
+  .phone-cta { grid-column: 1; }
+  .phones { padding-block: 8px; }
+
   nav,
   nav.open {
     display: grid;
