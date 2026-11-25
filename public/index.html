@@ -11,7 +11,7 @@
 <a href="#top" class="brand" aria-label="Stepbyweb, на главную"><span class="mark" aria-hidden="true"></span>stepbyweb</a>
 <nav id="primary-nav" aria-label="Навигация"><a href="#services">Услуги</a><a href="#work">Работы</a><a href="#process">Процесс</a><a href="#contact">Контакты</a></nav>
 <a class="btn nav-cta" href="#contact">Обсудить проект<span class="btn-plus" aria-hidden="true">+</span></a>
-<button class="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть меню"><span></span><span></span></button>
+<button class="menu-btn" aria-label="Открыть меню" aria-controls="navigation" aria-expanded="false" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть меню"><span></span><span></span></button>
 </div></header>
 <main id="content"><section class="hero wrap" id="top" aria-labelledby="hero-title">
 <div class="intro"><div class="eyebrow"><i></i> ВЕБ-СТУДИЯ / STEPBYWEB</div>
@@ -41,4 +41,29 @@
 <dl class="case-details"><div><dt>Задача</dt><dd id="case-task"></dd></div><div><dt>Решение</dt><dd id="case-solution"></dd></div><div><dt>Результат</dt><dd id="case-result"></dd></div></dl>
 <a class="btn blue" href="#contact" id="case-contact">Обсудить похожий проект</a></div></dialog>
 
-</main><script src="/studio.js" defer></script></body></html>
+<section class="section services" id="services" aria-labelledby="services-title"><div class="wrap split">
+<div class="side-title"><div class="eyebrow"><i></i> УСЛУГИ</div><h2 id="services-title">Что делаем<span class="blue-dot">.</span></h2></div>
+<div class="service-list">
+<details open><summary><span class="service-symbol build-symbol" aria-hidden="true"></span>Сайт с нуля</summary><p>Запускаете новый продукт или выходите в онлайн. Соберём структуру, напишем тексты, спроектируем интерфейс и перенесём его в код.</p><p class="outcome"><b>На выходе</b> Адаптивный сайт с формой заявки и системой управления контентом.</p></details>
+<details><summary><span class="service-symbol redesign-symbol" aria-hidden="true"></span>Редизайн и доработка</summary><p>Посетители теряются в каталоге или бросают форму. Разберём путь клиента, найдём узкие места и обновим нужные страницы.</p><p class="outcome"><b>На выходе</b> Понятная навигация, удобная мобильная версия и короткий путь к заявке.</p></details>
+<details><summary><span class="service-symbol support-symbol" aria-hidden="true"></span>Постоянная поддержка</summary><p>Сайт уже работает, а команде нужно выпускать обновления. Возьмём на себя исправления, новые страницы и проверку форм.</p><p class="outcome"><b>На выходе</b> Один список задач с приоритетами и отчёт по каждому выпуску.</p></details>
+</div></div></section>
+<section class="section process" id="process" aria-labelledby="process-title"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow"><i></i> ПРОЦЕСС</div><h2 id="process-title">Как мы работаем<span class="blue-dot">.</span></h2></div></div>
+<ol class="stages">
+<li><h3>Знакомимся</h3><p>Обсуждаем аудиторию и задачу. Фиксируем объём работ, сроки и стоимость.</p></li>
+<li><h3>Проектируем</h3><p>Собираем структуру и прототип. Согласуем путь от первого экрана до заявки.</p></li>
+<li><h3>Собираем</h3><p>Рисуем интерфейс, пишем код и проверяем страницы на телефоне и компьютере.</p></li>
+<li><h3>Запускаем</h3><p>Переносим сайт на домен, передаём доступы и планируем дальнейшие обновления.</p></li>
+</ol></div></section>
+<section class="section contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-grid">
+<div><div class="eyebrow"><i></i> КОНТАКТЫ</div><h2 id="contact-title">Обсудим ваш<br><em>следующий шаг?</em></h2><p>Расскажите, что хотите запустить или изменить. Свяжемся с вами по указанному контакту.</p></div>
+<form id="brief" method="post" action="/api/requests">
+<div class="field-row"><label>Ваше имя<input name="name" autocomplete="name" maxlength="100" required placeholder="Как к вам обращаться"></label>
+<label>Как с вами связаться<input name="contact" maxlength="200" required placeholder="Почта, телефон или Telegram"></label></div>
+<label>Описание задачи<textarea name="task" maxlength="4000" required rows="3" placeholder="Что нужно сделать?"></textarea></label>
+<label>Ссылка на сайт <small>необязательно</small><input name="website" inputmode="url" maxlength="500" placeholder="example.ru"></label>
+<div class="form-end"><button class="btn lime" type="submit">Отправить заявку<span class="btn-plus" aria-hidden="true">+</span></button><p>Используем ваши контакты для ответа на эту заявку.</p></div><p class="feedback" role="status" aria-live="polite"></p>
+</form></div></section>
+
+</main><footer class="footer"><div class="wrap footer-row"><a href="#top" class="brand" aria-label="Stepbyweb, к началу страницы"><span class="mark"></span>stepbyweb</a><span>Дизайн и разработка сайтов</span><a href="#top">Наверх</a></div></footer><script src="/studio.js" defer></script></body></html>
